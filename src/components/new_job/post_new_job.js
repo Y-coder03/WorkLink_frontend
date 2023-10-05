@@ -56,7 +56,7 @@ const Post_new_job = () => {
 
                     <div class="flex items-center justify-between">
                         <button onClick={Post_job} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                            Post job
+                            post new opportunity
                         </button>
                     </div>
                 </form>
