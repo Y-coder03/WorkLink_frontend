@@ -20,11 +20,13 @@ import Show_all_jobs from './pages/all_jobs/show_all_jobs';
 import Apply_for_job from './pages/apply_for _job/apply_for_job';
 import My_applied_jobs from './pages/my_applied_jobs/my_applied_jobs';
 import Applications from './pages/applications/applications';
+import My_posted_jobs from './pages/my_posted_jobs/my_posted_jobs';
+import Other_profile_page from './pages/profile_page/profile_page';
+import News_page from './pages/news/news_page';
+import Edit_profile_page from './pages/edit_profile/edit_profile_page';
 
 
-
-
-axios.defaults.baseURL = 'http://localhost:4000';
+axios.defaults.baseURL = 'http://localhost:10000';
 
 function App() {
   return (
@@ -42,9 +44,13 @@ function App() {
          <Route  path="/comments/:post_id" element={<Comments/>} />
          <Route  path="/post_new_job" element={<Add_job/>} />
          <Route  path="/all_jobs" element={<Show_all_jobs/>} />
-         <Route  path="/apply_for_job" element={<Apply_for_job/>} />
+         <Route  path="/apply_for_job/:job_id" element={<Apply_for_job/>} />
          <Route  path="/my_applied_jobs" element={<My_applied_jobs/>} />
-         <Route  path="/applications" element={<Applications/>} />
+         <Route  path="/applications/:job_id" element={<Applications/>} />
+         <Route  path="/my_posted_jobs" element={<My_posted_jobs/>} />
+         <Route  path="/other_profile_page/:user_id" element={<Other_profile_page/>} />
+         <Route  path="/news" element={<News_page/>} />
+         <Route  path="/edit_profile" element={<Edit_profile_page/>} />
          
        </Routes>
      </BrowserRouter>

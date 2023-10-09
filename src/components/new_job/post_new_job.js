@@ -8,17 +8,18 @@ const Post_new_job = () => {
     const [company_name, setcompany_name]=useState()
     const [name, setname] = useState()
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        Promise.resolve(getUserName()).then((res) => {
-            console.log(res);
-             setname(res.data)
-            console.log(name);
-        }).catch((e) => {
-            console.log(e);
-        })
-    }, [])
-
+    //     Promise.resolve(getUserName()).then((res) => {
+    //         console.log(res);
+    //          setname(res.data)
+    //         console.log(name);
+    //     }).catch((e) => {
+    //         console.log(e);
+    //     })
+    // }, [])
+    
+    // console.log(title);
     const Post_job = () => {
 
         Promise.resolve(newJob({ company_name, title, description })).then((response) => {

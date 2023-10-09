@@ -26,6 +26,11 @@ export const getUser = async (email) => {
     })
 }
 
+export const getOtherProfile = async (user_id) => {
+    return await axios.get(`/user/others_profile/${user_id}`)
+}
+
+
 export const searchPeople = async (name) => {
     return await axios.get(`/user/search/${name}`, {
         headers: {
@@ -63,8 +68,8 @@ export const getmyPosts = async () => {
         });
 }
 
-export const jobsApply = async () => {
-    return await axios.get(`/user/jobapply/:job_id`,
+export const jobsApply = async (job_id,description,resume_link) => {
+    return await axios.post(`/user/jobapply/${job_id}`, {description,resume_link},
         {
             headers: {
                 token: localStorage.getItem("token"),
@@ -136,6 +141,7 @@ export const getpost = async (post_id) => {
 
 /*****Jobs*****/
 export const newJob = async (data) => {
+   
     return await axios.post(`/job/addnewjob`, { credentials: data },
         {
             headers: {
@@ -171,6 +177,10 @@ export const getmyJobs = async () => {
 
             }
         });
+}
+
+export const getApplicants = async (job_id) => {
+    return await axios.get(`/job/getapplicants/${job_id}`);
 }
 
 

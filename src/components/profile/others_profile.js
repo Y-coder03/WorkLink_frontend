@@ -1,13 +1,13 @@
 import React,  { useEffect, useState } from 'react';
-import { editUser, getUser } from '../../api/api';
-// import { Navigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { getOtherProfile, getUser } from '../../api/api';
+import { useParams } from 'react-router-dom';
 
-const Profile = () => {
-    const navigate = useNavigate();
+const Other_profile = () => {
+    const params = useParams();
+    const user_id = params.user_id;
 
     useEffect(() => {
-        Promise.resolve(getUser()).then((res) => {
+        Promise.resolve(getOtherProfile(user_id)).then((res) => {
           console.log(res);
           setuser(res.data)
         }).catch((error) => {
@@ -15,13 +15,6 @@ const Profile = () => {
         })
         
       }, [])
-
-      const Edit_Profile = () => {
-        navigate(`/edit_profile/`)
-      }
-    
-
-
       const [user, setuser] = useState([])
     
     const education = [
@@ -49,18 +42,15 @@ const Profile = () => {
                    
                 </div>
                 {/* <p className="text-sm px-20 text-white">Software Engineer at ABC Corp</p> */}
-               
                 <div>
                         <h1 className="text-xl font-semibold px-20 text-white">{user?.status}</h1>
                         {/* <p className="text-sm">Software Engineer at ABC Corp</p> */}
                     </div>
-
-                                      
+                    
             </header>
 
             {/* Main Content */}
             <main className="container mx-auto mt-6 p-4">
-            <button onClick={Edit_Profile} class="bg-blue-500"> edit profile</button>
                 {/* Profile Summary */}
                 {/* <div className="bg-white p-4 rounded shadow-md mb-6">
                     <h2 className="text-lg font-semibold mb-2">About</h2>
@@ -172,4 +162,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Other_profile;
