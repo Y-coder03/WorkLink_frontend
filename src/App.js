@@ -24,7 +24,7 @@ import Applications from './pages/applications/applications';
 
 
 
-axios.defaults.baseURL = 'http://localhost:4000';
+axios.defaults.baseURL = 'http://localhost:10000';
 
 function App() {
   return (
